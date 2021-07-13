@@ -8,13 +8,13 @@ The library has been modified slightly - In the insertion method you specifiy a 
 
 <br />
 
-### insert (modified)
+### insert (modified, yet very similar to original function)
 
 ```javascript
 function insert(uint price, uint id) internal;
 ```
 
-Insert the key `id` into the tree.
+Insert the key `id` into the tree based on key `price`.
 
 Transaction | Condition
 :---------- |:--------
