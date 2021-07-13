@@ -4,6 +4,25 @@
 
 The modified code has not been tested please do not use in production - This is only for research purposes!
 
+The library has been modified slightly - In the insertion method you specifiy a price and an ID. So the ID is used as the key but insertion in tree is determined by price.
+
+<br />
+
+### insert (modified)
+
+```javascript
+function insert(uint price, uint id) internal;
+```
+
+Insert the key `id` into the tree.
+
+Transaction | Condition
+:---------- |:--------
+_success_   | `id` has been successfully inserted into the tree
+_failure_   | `id` already exists in the tree
+
+<br />
+
 Please see original repository for more info: https://github.com/bokkypoobah/BokkyPooBahsRedBlackTreeLibrary
 
 <br />
