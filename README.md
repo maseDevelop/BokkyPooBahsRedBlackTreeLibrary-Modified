@@ -2,7 +2,7 @@
 
 
 
-This code has not been tested please do not use in production and has not been tested - This is only for research purposes!
+The modified code has not been tested please do not use in production - This is only for research purposes!
 
 Please see original repository for more info: https://github.com/bokkypoobah/BokkyPooBahsRedBlackTreeLibrary
 

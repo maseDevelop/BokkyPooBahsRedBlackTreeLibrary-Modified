@@ -17,6 +17,7 @@ pragma solidity >=0.4.22 <0.9.0;
 //
 // Enjoy. (c) BokkyPooBah / Bok Consulting Pty Ltd 2020. The MIT Licence.
 // ----------------------------------------------------------------------------
+
 library BokkyPooBahsRedBlackTreeLibrary {
 
     struct Node {
