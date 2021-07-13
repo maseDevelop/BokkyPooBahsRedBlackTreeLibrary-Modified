@@ -433,7 +433,7 @@ Returns the node information if `key` exists in the tree. All `uint` values will
 
 <br />
 
-### insert
+### insert - Please see top of README
 
 ```javascript
 function insert(uint key) internal;
