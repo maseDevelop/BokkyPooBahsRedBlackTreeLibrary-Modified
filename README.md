@@ -6,8 +6,6 @@ The modified code has not been tested please do not use in production - This is 
 
 The library has been modified slightly - In the insertion method you specifiy a price and an ID. So the ID is used as the key but insertion in tree is determined by price.
 
-<br />
-
 ### insert (modified, yet very similar to original function)
 
 ```javascript
