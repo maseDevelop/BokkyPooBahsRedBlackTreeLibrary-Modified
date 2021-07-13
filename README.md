@@ -21,7 +21,7 @@ _failure_   | `id` already exists in the tree
 
 <br />
 
-Please see original repository for more info: https://github.com/bokkypoobah/BokkyPooBahsRedBlackTreeLibrary
+Please see original README below and check out the original repository for more info: https://github.com/bokkypoobah/BokkyPooBahsRedBlackTreeLibrary
 
 <br />
 
