@@ -1,4 +1,9 @@
-pragma solidity ^0.6.0;
+//SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.4.22 <0.9.0;
+
+//Modified code for tree that allows insertion based on a price and stores a variable id
+//This allows for duplicate price pairings
 
 // ----------------------------------------------------------------------------
 // BokkyPooBah's Red-Black Tree Library v1.0-pre-release-a
@@ -18,6 +23,7 @@ library BokkyPooBahsRedBlackTreeLibrary {
         uint parent;
         uint left;
         uint right;
+        uint price; //trade price
         bool red;
     }
 
@@ -82,29 +88,47 @@ library BokkyPooBahsRedBlackTreeLibrary {
         return(key, self.nodes[key].parent, self.nodes[key].left, self.nodes[key].right, self.nodes[key].red);
     }
 
-    function insert(Tree storage self, uint key) internal {
-        require(key != EMPTY);
-        require(!exists(self, key));
-        uint cursor = EMPTY;
-        uint probe = self.root;
-        while (probe != EMPTY) {
-            cursor = probe;
-            if (key < probe) {
-                probe = self.nodes[probe].left;
+    function insert(Tree storage self, uint price, uint id) internal {
+
+        require(id != EMPTY, "ID can not be 0 as that is a default value");
+        require(!exists(self, id));
+
+        uint currentID = self.root;
+        uint priceAtNode = self.nodes[self.root].price;
+        bool rightSide = true;
+
+        //Current ID not equal to 0
+        while (currentID != EMPTY) {
+
+            //Get the price at the current node
+            priceAtNode = self.nodes[currentID].price;
+
+            //Is price specified in the function arguments less than price at current node
+            if (price < priceAtNode) {
+                rightSide = false;
+                currentID = self.nodes[currentID].left;
             } else {
-                probe = self.nodes[probe].right;
+                //Price specified is greater than the one at the current node
+                currentID = self.nodes[currentID].right;
             }
         }
-        self.nodes[key] = Node({parent: cursor, left: EMPTY, right: EMPTY, red: true});
-        if (cursor == EMPTY) {
-            self.root = key;
-        } else if (key < cursor) {
-            self.nodes[cursor].left = key;
+
+        //Creating a new node
+        self.nodes[id] = Node({parent: currentID, left: EMPTY, right: EMPTY, price: price, red: true});
+
+        //Setting parent node to the node just created
+        if (currentID == EMPTY) {
+            self.root = id;
+        } else if (rightSide) {
+            self.nodes[currentID].left = id;
         } else {
-            self.nodes[cursor].right = key;
+            self.nodes[currentID].right = id;
         }
-        insertFixup(self, key);
+
+        //Rotating the tree
+        insertFixup(self, id);
     }
+
     function remove(Tree storage self, uint key) internal {
         require(key != EMPTY);
         require(exists(self, key));
