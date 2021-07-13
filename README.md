@@ -1,3 +1,13 @@
+# BokkyPooBahs Red-Black Binary Search Tree Library - Modified
+
+<br />
+
+<hr />
+
+This code has not been tested please do not use in production and has not been tested - This is only for research purposes!
+
+Please see original repository for more info: https://github.com/bokkypoobah/BokkyPooBahsRedBlackTreeLibrary
+
 <kbd><img src="images/PrincessLeiaPeachExpelsARainbowBigBang-RBT-940x198.png" /></kbd>
 
 <br />
