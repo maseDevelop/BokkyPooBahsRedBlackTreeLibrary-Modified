@@ -4,7 +4,24 @@
 
 The modified code has not been tested please do not use in production - This is only for research purposes!
 
-Please see original repository for more info: https://github.com/bokkypoobah/BokkyPooBahsRedBlackTreeLibrary
+The library has been modified slightly - In the insertion method you specifiy a price and an ID. So the ID is used as the key but insertion in tree is determined by price.
+
+### insert (modified, yet very similar to original function)
+
+```javascript
+function insert(uint price, uint id) internal;
+```
+
+Insert the key `id` into the tree based on key `price`.
+
+Transaction | Condition
+:---------- |:--------
+_success_   | `id` has been successfully inserted into the tree
+_failure_   | `id` already exists in the tree
+
+<br />
+
+Please see original README below and check out the original repository for more info: https://github.com/bokkypoobah/BokkyPooBahsRedBlackTreeLibrary
 
 <br />
 
@@ -416,7 +433,7 @@ Returns the node information if `key` exists in the tree. All `uint` values will
 
 <br />
 
-### insert
+### insert - Please see top of README
 
 ```javascript
 function insert(uint key) internal;
